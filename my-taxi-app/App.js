@@ -1,32 +1,10 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import MapView, { Polyline } from 'react-native-maps';
-import { incheonTaxiways } from './assets/incheonTaxiways';
+import { View, Text, StyleSheet } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <MapView
-        style={styles.map}
-        initialRegion={{
-          latitude: 37.46,
-          longitude: 126.44,
-          latitudeDelta: 0.05,
-          longitudeDelta: 0.05,
-        }}
-      >
-        {incheonTaxiways.features.map((feature, index) => (
-          <Polyline
-            key={index}
-            coordinates={feature.geometry.coordinates.map(([lng, lat]) => ({
-              latitude: lat,
-              longitude: lng
-            }))}
-            strokeColor="#FF0000"
-            strokeWidth={2}
-          />
-        ))}
-      </MapView>
+      <Text style={styles.text}>✅ 앱 실행 성공! 화면도 떴어요!</Text>
     </View>
   );
 }
@@ -34,8 +12,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  map: {
-    flex: 1,
+  text: {
+    fontSize: 24,
+    color: 'black',
   },
 });
